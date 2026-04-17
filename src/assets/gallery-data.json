@@ -1,0 +1,181 @@
+{
+  "categories": ["All", "Portrait", "Nature", "Street", "Architecture"],
+  "photos": [
+    {
+      "id": 1,
+      "title": "Ember Light",
+      "category": "Portrait",
+      "src": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80",
+      "srcFull": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1600&q=90",
+      "width": 800,
+      "height": 1067,
+      "tags": ["portrait", "golden hour", "warm light"],
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Rain & Neon",
+      "category": "Street",
+      "src": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80",
+      "srcFull": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1600&q=90",
+      "width": 800,
+      "height": 534,
+      "tags": ["street", "rain", "neon", "night"],
+      "featured": false
+    },
+    {
+      "id": 3,
+      "title": "Veil of Mist",
+      "category": "Nature",
+      "src": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80",
+      "srcFull": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=1600&q=90",
+      "width": 800,
+      "height": 533,
+      "tags": ["nature", "forest", "mist", "moody"],
+      "featured": true
+    },
+    {
+      "id": 4,
+      "title": "The Weight of Silence",
+      "category": "Portrait",
+      "src": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
+      "srcFull": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1600&q=90",
+      "width": 800,
+      "height": 1000,
+      "tags": ["portrait", "moody", "monochrome"],
+      "featured": false
+    },
+    {
+      "id": 5,
+      "title": "Fractured Sky",
+      "category": "Architecture",
+      "src": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
+      "srcFull": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=90",
+      "width": 800,
+      "height": 1067,
+      "tags": ["architecture", "glass", "geometry"],
+      "featured": true
+    },
+    {
+      "id": 6,
+      "title": "Crowd in Motion",
+      "category": "Street",
+      "src": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80",
+      "srcFull": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=90",
+      "width": 800,
+      "height": 600,
+      "tags": ["street", "city", "movement", "blur"],
+      "featured": false
+    },
+    {
+      "id": 7,
+      "title": "First Light",
+      "category": "Nature",
+      "src": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
+      "srcFull": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=90",
+      "width": 800,
+      "height": 533,
+      "tags": ["nature", "mountains", "sunrise", "landscape"],
+      "featured": false
+    },
+    {
+      "id": 8,
+      "title": "Beneath the Surface",
+      "category": "Portrait",
+      "src": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80",
+      "srcFull": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1600&q=90",
+      "width": 800,
+      "height": 1067,
+      "tags": ["portrait", "shadows", "dramatic", "male"],
+      "featured": true
+    },
+    {
+      "id": 9,
+      "title": "Concrete Verses",
+      "category": "Architecture",
+      "src": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80&fit=crop&crop=bottom",
+      "srcFull": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=90",
+      "width": 800,
+      "height": 600,
+      "tags": ["architecture", "brutalism", "urban"],
+      "featured": false
+    },
+    {
+      "id": 10,
+      "title": "Still Waters",
+      "category": "Nature",
+      "src": "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800&q=80",
+      "srcFull": "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1600&q=90",
+      "width": 800,
+      "height": 600,
+      "tags": ["nature", "ocean", "minimalism", "horizon"],
+      "featured": true
+    },
+    {
+      "id": 11,
+      "title": "Lantern Market",
+      "category": "Street",
+      "src": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
+      "srcFull": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=90",
+      "width": 800,
+      "height": 534,
+      "tags": ["street", "market", "light", "food"],
+      "featured": false
+    },
+    {
+      "id": 12,
+      "title": "Seen Through Glass",
+      "category": "Portrait",
+      "src": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=800&q=80",
+      "srcFull": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=1600&q=90",
+      "width": 800,
+      "height": 1000,
+      "tags": ["portrait", "female", "close up", "bokeh"],
+      "featured": false
+    }
+  ],
+  "instagram": [
+    {
+      "id": "ig1",
+      "src": "https://www.instagram.com/p/DW7FwpSDMgQ/?igsh=MTl1bTI1aHNmejh1NQ==",
+      "likes": 2847,
+      "caption": "When the light does all the work 🌅",
+      "link": "https://instagram.com/sarvesh.createz"
+    },
+    {
+      "id": "ig2",
+      "src": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=400&q=80&fit=crop",
+      "likes": 1932,
+      "caption": "Some mornings you just walk into magic 🌿",
+      "link": "https://instagram.com/sarvesh.createz"
+    },
+    {
+      "id": "ig3",
+      "src": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&q=80&fit=crop",
+      "likes": 3104,
+      "caption": "Tokyo after midnight 🌃",
+      "link": "https://instagram.com/sarvesh.createz"
+    },
+    {
+      "id": "ig4",
+      "src": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80&fit=crop&crop=face",
+      "likes": 1568,
+      "caption": "The stories in a face 🖤",
+      "link": "https://instagram.com/sarvesh.createz"
+    },
+    {
+      "id": "ig5",
+      "src": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&q=80&fit=crop",
+      "likes": 4211,
+      "caption": "5am. Worth every second ⛰️",
+      "link": "https://instagram.com/sarvesh.createz"
+    },
+    {
+      "id": "ig6",
+      "src": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&q=80&fit=crop&crop=face",
+      "likes": 2076,
+      "caption": "Soft light, honest eyes 🤍",
+      "link": "https://instagram.com/sarvesh.createz"
+    }
+  ]
+}

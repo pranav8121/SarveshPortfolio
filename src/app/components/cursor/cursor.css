@@ -1,0 +1,135 @@
+.cursor-outer,
+.cursor-dot {
+  position: fixed;
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  transform: translate(-50%, -50%);
+  will-change: transform, left, top;
+}
+
+/* Outer ring */
+.cursor-outer {
+  width: 44px;
+  height: 44px;
+  transition: width 0.3s var(--ease-out-expo),
+              height 0.3s var(--ease-out-expo),
+              opacity 0.2s ease;
+}
+
+.cursor-ring {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid rgba(200, 240, 74, 0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, transform 0.3s var(--ease-out-expo);
+}
+
+.cursor-ring-inner {
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(200, 240, 74, 0.2);
+  border-radius: 50%;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+/* Aperture blades */
+.cursor-aperture {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.blade {
+  position: absolute;
+  width: 8px;
+  height: 2px;
+  background: rgba(200, 240, 74, 0.7);
+  border-radius: 1px;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 50%;
+}
+
+.blade:nth-child(1) { transform: rotate(0deg)   translateX(0px) translateY(-50%); }
+.blade:nth-child(2) { transform: rotate(60deg)  translateX(0px) translateY(-50%); }
+.blade:nth-child(3) { transform: rotate(120deg) translateX(0px) translateY(-50%); }
+.blade:nth-child(4) { transform: rotate(180deg) translateX(0px) translateY(-50%); }
+.blade:nth-child(5) { transform: rotate(240deg) translateX(0px) translateY(-50%); }
+.blade:nth-child(6) { transform: rotate(300deg) translateX(0px) translateY(-50%); }
+
+/* Dot */
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  transition: transform 0.15s var(--ease-spring), background 0.2s ease;
+}
+
+.cursor-dot.clicking {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+/* Hover state */
+.cursor-outer.hovering {
+  width: 56px;
+  height: 56px;
+}
+
+.cursor-outer.hovering .cursor-ring {
+  border-color: var(--color-accent);
+}
+
+.cursor-outer.hovering .cursor-aperture {
+  transform: rotate(30deg);
+}
+
+/* Image hover */
+.cursor-outer.on-image {
+  width: 72px;
+  height: 72px;
+}
+
+.cursor-outer.on-image .cursor-ring {
+  background: rgba(200, 240, 74, 0.1);
+  border-color: var(--color-accent);
+}
+
+.cursor-outer.on-image .cursor-aperture {
+  transform: rotate(60deg) scale(1.5);
+}
+
+/* Click state */
+.cursor-outer.clicking .cursor-ring {
+  transform: scale(0.8);
+}
+
+/* Label */
+.cursor-label {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cursor-outer.on-image .cursor-label {
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .cursor-outer, .cursor-dot {
+    display: none;
+  }
+}

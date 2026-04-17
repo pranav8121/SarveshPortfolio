@@ -1,0 +1,311 @@
+.about-section {
+  padding: var(--section-padding) 0;
+  background: var(--color-bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-bg-text {
+  position: absolute;
+  top: 50%;
+  right: -2%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(120px, 18vw, 260px);
+  letter-spacing: -0.02em;
+  color: rgba(255,255,255,0.02);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+}
+
+/* Image Side */
+.about-image-side {
+  position: relative;
+}
+
+.about-image-frame {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.about-photo {
+  width: 100%;
+  height: clamp(400px, 60vh, 620px);
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: saturate(0.85);
+  transition: transform 0.8s var(--ease-out-expo), filter 0.5s ease;
+}
+
+.about-image-frame:hover .about-photo {
+  transform: scale(1.03);
+  filter: saturate(1);
+}
+
+/* Frame corners */
+.af-corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  z-index: 2;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.af-corner.tl { top: 12px; left: 12px; border-top: 2px solid var(--color-accent); border-left: 2px solid var(--color-accent); }
+.af-corner.tr { top: 12px; right: 12px; border-top: 2px solid var(--color-accent); border-right: 2px solid var(--color-accent); }
+.af-corner.bl { bottom: 12px; left: 12px; border-bottom: 2px solid var(--color-accent); border-left: 2px solid var(--color-accent); }
+.af-corner.br { bottom: 12px; right: 12px; border-bottom: 2px solid var(--color-accent); border-right: 2px solid var(--color-accent); }
+
+/* Exposure data overlay */
+.about-exposure-data {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: rgba(200, 240, 74, 0.6);
+  text-transform: uppercase;
+}
+
+/* Light Leak Effect */
+.light-leak {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(232, 201, 122, 0.15), transparent 70%);
+  pointer-events: none;
+  animation: leakPulse 4s ease-in-out infinite;
+}
+
+@keyframes leakPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Badge */
+.about-badge {
+  position: absolute;
+  bottom: -24px;
+  right: -24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.badge-aperture {
+  color: var(--color-accent);
+  animation: apertureSpin 8s linear infinite;
+}
+
+@keyframes apertureSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.badge-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.badge-label {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* Content Side */
+.about-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  margin-bottom: 28px;
+}
+
+.about-title-accent {
+  color: var(--color-accent);
+}
+
+.about-bio {
+  font-family: var(--font-light);
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 1.85;
+  color: var(--color-text-muted);
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.about-bio strong {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Skills */
+.about-skills {
+  margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skill-item {}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.skill-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.skill-value {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: var(--color-accent);
+}
+
+.skill-bar {
+  height: 2px;
+  background: var(--color-border);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-warm));
+  border-radius: 1px;
+  width: 0;
+  transition: width 1.2s var(--ease-out-expo);
+}
+
+.reveal.visible .skill-fill,
+.visible .skill-fill {
+  /* triggered by parent becoming visible */
+}
+
+/* Gear */
+.about-gear {
+  margin-bottom: 32px;
+}
+
+.gear-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  margin-bottom: 14px;
+}
+
+.gear-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.gear-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.gear-type {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.gear-name {
+  font-size: 12px;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* IG Button */
+.about-ig-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  padding: 12px 24px;
+  border-radius: 100px;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.about-ig-btn:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-dim);
+  color: var(--color-accent);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image-side {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .about-badge {
+    bottom: -16px;
+    right: 0;
+  }
+
+  .about-content-side {
+    padding-top: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gear-list {
+    grid-template-columns: 1fr;
+  }
+}

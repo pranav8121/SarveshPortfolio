@@ -1,0 +1,94 @@
+<section id="portfolio" class="portfolio-section">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="section-header" scrollReveal>
+      <p class="section-label">Portfolio</p>
+      <h2 class="section-title">
+        Selected<br>
+        <span class="title-accent">Work</span>
+      </h2>
+      <p class="section-desc">
+        Each image is a carefully composed moment — a balance of light, shadow, and human emotion.
+      </p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="category-filters" scrollReveal [revealDelay]="100">
+      @for (cat of categories(); track cat) {
+        <button
+          class="filter-btn"
+          [class.active]="activeCategory() === cat"
+          (click)="setCategory(cat)">
+          {{ cat }}
+          @if (activeCategory() === cat) {
+            <span class="filter-dot"></span>
+          }
+        </button>
+      }
+    </div>
+
+    <!-- Masonry Grid -->
+    <div class="masonry-grid">
+      @for (photo of filteredPhotos(); track trackById($index, photo); let i = $index) {
+        <div
+          class="gallery-item"
+          [class.tall]="photo.height > photo.width"
+          [class.wide]="photo.width > photo.height * 1.4"
+          [class.featured]="photo.featured"
+          (click)="openLightbox(i)"
+          scrollReveal
+          [revealDelay]="(i % 4) * 80">
+
+          <div class="gallery-image-wrap">
+            <img
+              [src]="photo.src"
+              [alt]="photo.title"
+              loading="lazy"
+              class="gallery-img"
+            />
+            <!-- Focus Frame -->
+            <div class="focus-frame">
+              <span class="ff-corner tl"></span>
+              <span class="ff-corner tr"></span>
+              <span class="ff-corner bl"></span>
+              <span class="ff-corner br"></span>
+              <div class="focus-cross">
+                <span class="fc-h"></span>
+                <span class="fc-v"></span>
+              </div>
+            </div>
+            <!-- Overlay -->
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <p class="gallery-category">{{ photo.category }}</p>
+                <h3 class="gallery-title">{{ photo.title }}</h3>
+                <div class="gallery-tags">
+                  @for (tag of photo.tags; track tag) {
+                    <span class="gallery-tag">#{{ tag }}</span>
+                  }
+                </div>
+              </div>
+              <div class="gallery-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+
+  <!-- Lightbox -->
+  <app-lightbox
+    [photos]="filteredPhotos()"
+    [currentIndex]="lightboxIndex()"
+    [visible]="lightboxVisible()"
+    (close)="closeLightbox()"
+    (navigate)="navigateLightbox($event)"
+  ></app-lightbox>
+
+</section>

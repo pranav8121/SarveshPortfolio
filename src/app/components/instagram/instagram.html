@@ -1,0 +1,82 @@
+<section id="instagram" class="ig-section">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="ig-header" scrollReveal>
+      <div class="ig-header-left">
+        <p class="section-label">Instagram</p>
+        <h2 class="ig-title">
+          Caught in<br>
+          <span class="ig-title-accent">the Feed</span>
+        </h2>
+      </div>
+      <div class="ig-header-right">
+        <a
+          href="https://instagram.com/sarvesh.createz"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ig-follow-btn">
+          <div class="ig-avatar">SG</div>
+          <div class="ig-follow-info">
+            <span class="ig-handle">&#64;sarvesh.createz</span>
+            <span class="ig-sub">Follow on Instagram</span>
+          </div>
+          <svg class="ig-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="ig-grid">
+      @for (post of posts(); track post.id; let i = $index) {
+        <a
+          class="ig-post"
+          [href]="post.link"
+          target="_blank"
+          rel="noopener noreferrer"
+          scrollReveal
+          [revealDelay]="i * 80">
+          <div class="ig-post-inner">
+            <img
+              [src]="post.src"
+              [alt]="post.caption"
+              loading="lazy"
+              class="ig-img"
+            />
+            <div class="ig-overlay">
+              <div class="ig-overlay-content">
+                <div class="ig-likes">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                  </svg>
+                  <span>{{ formatLikes(post.likes) }}</span>
+                </div>
+                <p class="ig-caption">{{ post.caption }}</p>
+              </div>
+            </div>
+            <!-- Camera viewfinder corners -->
+            <div class="ig-vf-corner tl"></div>
+            <div class="ig-vf-corner tr"></div>
+            <div class="ig-vf-corner bl"></div>
+            <div class="ig-vf-corner br"></div>
+          </div>
+        </a>
+      }
+    </div>
+
+    <!-- CTA -->
+    <div class="ig-cta" scrollReveal [revealDelay]="200">
+      <p class="ig-cta-text">See more on Instagram</p>
+      <a
+        href="https://instagram.com/sarvesh.createz"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="ig-cta-link">
+        &#64;sarvesh.createz →
+      </a>
+    </div>
+
+  </div>
+</section>
