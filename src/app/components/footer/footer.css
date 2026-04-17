@@ -1,0 +1,21 @@
+.footer {
+  border-top: 1px solid var(--color-border);
+  padding: 20px var(--gutter);
+  text-align: center;
+  background: var(--color-bg);
+}
+
+.footer-text {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--color-text-faint);
+}
+
+.footer-link {
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-accent);
+}

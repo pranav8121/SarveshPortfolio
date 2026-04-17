@@ -7,6 +7,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio';
 import { AboutComponent } from './components/about/about';
 import { InstagramComponent } from './components/instagram/instagram';
 import { ContactComponent } from './components/contact/contact';
+import { FooterComponent } from './components/footer/footer';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { ContactComponent } from './components/contact/contact';
     AboutComponent,
     InstagramComponent,
     ContactComponent,
+    FooterComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',
