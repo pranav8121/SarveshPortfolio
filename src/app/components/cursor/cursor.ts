@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener, inject, NgZone, ChangeDetectorRef, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, inject, ElementRef, NgZone, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -11,21 +11,25 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 export class CursorComponent implements OnInit, OnDestroy {
   private platformId = inject(PLATFORM_ID);
   private ngZone = inject(NgZone);
-  private cdr = inject(ChangeDetectorRef);
+  private el = inject(ElementRef);
 
-  mouseX = 0;
-  mouseY = 0;
-  dotX = 0;
-  dotY = 0;
+  private mouseX = 0;
+  private mouseY = 0;
+  private dotX = 0;
+  private dotY = 0;
   isHovering = false;
   isClicking = false;
   isOnImage = false;
   label = '';
 
   private rafId = 0;
+  private outerEl: HTMLElement | null = null;
+  private dotEl: HTMLElement | null = null;
 
   ngOnInit() {
     if (!isPlatformBrowser(this.platformId)) return;
+    this.outerEl = this.el.nativeElement.querySelector('.cursor-outer');
+    this.dotEl = this.el.nativeElement.querySelector('.cursor-dot');
     this.ngZone.runOutsideAngular(() => this.animate());
   }
 
@@ -39,8 +43,8 @@ export class CursorComponent implements OnInit, OnDestroy {
     this.mouseY = e.clientY;
 
     const target = e.target as HTMLElement;
-    this.isOnImage = target.tagName === 'IMG' || target.closest('.gallery-item') !== null;
-    this.isHovering = !!(
+    const isOnImage = target.tagName === 'IMG' || target.closest('.gallery-item') !== null;
+    const isHovering = !!(
       target.closest('a') ||
       target.closest('button') ||
       target.closest('.gallery-item') ||
@@ -48,19 +52,40 @@ export class CursorComponent implements OnInit, OnDestroy {
       target.tagName === 'A' ||
       target.tagName === 'BUTTON'
     );
-    this.label = this.isOnImage ? 'VIEW' : '';
+    const label = isOnImage ? 'VIEW' : '';
+
+    if (this.dotEl) {
+      this.dotEl.style.left = `${this.mouseX}px`;
+      this.dotEl.style.top = `${this.mouseY}px`;
+    }
+
+    if (
+      isOnImage !== this.isOnImage ||
+      isHovering !== this.isHovering ||
+      label !== this.label
+    ) {
+      this.ngZone.run(() => {
+        this.isOnImage = isOnImage;
+        this.isHovering = isHovering;
+        this.label = label;
+      });
+    }
   }
 
   @HostListener('document:mousedown')
-  onMouseDown() { this.isClicking = true; }
+  onMouseDown() { this.ngZone.run(() => { this.isClicking = true; }); }
 
   @HostListener('document:mouseup')
-  onMouseUp() { this.isClicking = false; }
+  onMouseUp() { this.ngZone.run(() => { this.isClicking = false; }); }
 
   private animate() {
     const ease = 0.12;
     this.dotX += (this.mouseX - this.dotX) * ease;
     this.dotY += (this.mouseY - this.dotY) * ease;
+    if (this.outerEl) {
+      this.outerEl.style.left = `${this.dotX}px`;
+      this.outerEl.style.top = `${this.dotY}px`;
+    }
     this.rafId = requestAnimationFrame(() => this.animate());
   }
 }
